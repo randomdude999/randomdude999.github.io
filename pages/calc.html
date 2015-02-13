@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Calc-o-Matic</title>
+		<meta charset='utf-8'></meta>
+		<script>
+			var method = decodeURIComponent((new RegExp('[?|&]method=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null;
+			var x = Number(decodeURIComponent((new RegExp('[?|&]num1=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null);
+			var y = Number(decodeURIComponent((new RegExp('[?|&]num2=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null);
+			var gcd = function(a, b) {
+				if ( ! b) {
+					return a;
+				}
+			
+				return gcd(b, a % b);
+			};
+			if (method == 'divide') {
+				if (y != 0) {
+					var zn = Math.floor(x/y);
+					if (x % y != 0) {
+						var zf1 = x % y;
+						var zf2 = y;
+						var toDivWith = gcd(zf1, zf2);
+						zf1 /= toDivWith;
+						zf2 /= toDivWith;
+						var zf = zf1 + '/' + zf2;
+						var z = zn + ' ' + zf;
+					} else {var z = String(zn)};
+				} else {z = 'Can\'t divide by zero!'}
+			}
+			else if (method == 'add') {
+				z = String(x + y);
+			}
+			else if (method == 'substract') {
+				z = String(x - y);
+			}
+			else if (method == 'multiply') {
+				z = String(x * y);
+			}
+		</script>
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+		<style>
+      body {
+        background-color: #000;
+        margin: 30px;
+      }
+      p,form,input {
+				font-family: Oswald;
+			}
+      input[type='submit'] {
+        font-size: 100%;
+      }
+			input[type='number'] {
+				width: 80px;
+			}
+      p, label {
+        color: #fff;
+      }
+		</style>
+	</head>
+	<body>
+		<p id='result'><br></p>
+		<script>if (z) {document.getElementById('result').innerHTML = z;}</script>
+		<form action='calc.html'>
+			<input type='number' name='num1' placeholder='Number 1' required><br>
+			<input type='number' name='num2' placeholder='Number 2' required><br>
+			<input type='radio' name='method' value='add' id='plus'><label for='plus'>Add</label><br>
+			<input type='radio' name='method' value='substract' id='minus'><label for='minus'>Substract</label><br>
+			<input type='radio' name='method' value='multiply' id='asterisk'><label for='asterisk'>Multiply</label><br>
+			<input type='radio' name='method' value='divide' id='slash'><label for='slash'>Divide</label><br>
+			<input type='submit' value='Calculate'>
+		</form>
+		<script>
+			if (method == 'add') {
+				document.getElementById('plus').checked = true;
+			}
+			else if (method == 'substract') {
+				document.getElementById('minus').checked = true;
+			}
+			else if (method == 'multiply') {
+				document.getElementById('asterisk').checked = true;
+			}
+			else if (method == 'divide') {
+				document.getElementById('slash').checked = true;
+			};
+			if (x > 0) {document.getElementsByTagName('input')[0].value = x;};
+			if (y > 0) {document.getElementsByTagName('input')[1].value = y;};
+		</script>
+	</body>
+</html>
