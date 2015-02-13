@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>ROT47</title>
+<title>Chipers</title>
 <meta charset=ascii>
 <script>
 function ROTn(text, map) {
@@ -27,6 +27,14 @@ function ROT47(text) {
   "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~")
   return R;
 }
+
+function ROT13(text) {
+  // Hides all letters in the English alphabet (a-z, A-Z)
+  var R = new String()
+  R = ROTn(text, "abcdefghijklmnopqrstuvwxyz")
+  R = ROTn(R, "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+  return R;
+}
 </script>
 <link href='http://fonts.googleapis.com/css?family=Oswald|Ubuntu+Mono' rel='stylesheet' type='text/css'>
 <style>
@@ -46,5 +54,6 @@ textarea {
 <textarea rows=10 cols=40 id=text></textarea>
 <br>
 <input type=button onclick="document.getElementById('text').value=ROT47(document.getElementById('text').value)" value=ROT47>
+<input type=button onclick="document.getElementById('text').value=ROT13(document.getElementById('text').value)" value=ROT13>
 </body>
 </html>
