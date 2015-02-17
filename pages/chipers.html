@@ -29,14 +29,19 @@ function ROT47(text) {
 }
 
 function ROT13(text) {
-  // Hides all letters in the English alphabet (a-z, A-Z)
+  // Hides all letters in the English alphabet (a-z, A-Z).
   var R = new String()
-  R = ROTn(text, "abcdefghijklmnopqrstuvwxyz")
-  R = ROTn(R, "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+  R = ROTn(text, "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ")
   return R;
 }
+
+function reverse(text){
+  //Reverses the input text.
+  return text.split("").reverse().join("");
+}
+}
 </script>
-<link href='http://fonts.googleapis.com/css?family=Oswald|Ubuntu+Mono' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Oswald|Share+Tech+Mono' rel='stylesheet' type='text/css'>
 <style>
 body {
   background-color: #000;
@@ -46,7 +51,7 @@ input {
   font-family: Oswald;
 }
 textarea {
-  font-family: Ubuntu Mono;
+  font-family: "Share Tech Mono";
 }
 </style>
 </head>
@@ -55,5 +60,6 @@ textarea {
 <br>
 <input type=button onclick="document.getElementById('text').value=ROT47(document.getElementById('text').value)" value=ROT47>
 <input type=button onclick="document.getElementById('text').value=ROT13(document.getElementById('text').value)" value=ROT13>
+<input type=button onclick="document.getElementById('text').value=reverse(document.getElementById('text').value)" value=Reverse>
 </body>
 </html>
