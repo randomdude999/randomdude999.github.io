@@ -9,5 +9,9 @@ p, h1, a, li {
 }
 
 a {
-  color: #33f;
+  color: #00f;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
 }
