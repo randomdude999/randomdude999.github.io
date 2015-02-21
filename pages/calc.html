@@ -64,10 +64,10 @@
 		<form action='calc.html'>
 			<input type='number' name='num1' placeholder='Number 1' required><br>
 			<input type='number' name='num2' placeholder='Number 2' required><br>
-			<input type='radio' name='method' value='add' id='plus'><label for='plus'>Add</label><br>
-			<input type='radio' name='method' value='substract' id='minus'><label for='minus'>Substract</label><br>
-			<input type='radio' name='method' value='multiply' id='asterisk'><label for='asterisk'>Multiply</label><br>
-			<input type='radio' name='method' value='divide' id='slash'><label for='slash'>Divide</label><br>
+			<input type='radio' name='method' value='add' id='plus' required><label for='plus'>Add</label><br>
+			<input type='radio' name='method' value='substract' id='minus' required><label for='minus'>Substract</label><br>
+			<input type='radio' name='method' value='multiply' id='asterisk' required><label for='asterisk'>Multiply</label><br>
+			<input type='radio' name='method' value='divide' id='slash' required><label for='slash'>Divide</label><br>
 			<input type='submit' value='Calculate'>
 		</form>
 		<script>
@@ -83,8 +83,8 @@
 			else if (method == 'divide') {
 				document.getElementById('slash').checked = true;
 			};
-			if (x > 0) {document.getElementsByTagName('input')[0].value = x;};
-			if (y > 0) {document.getElementsByTagName('input')[1].value = y;};
+			if (x != 0) {document.getElementsByTagName('input')[0].value = x;};
+			if (y != 0) {document.getElementsByTagName('input')[1].value = y;};
 		</script>
 	</body>
 </html>
