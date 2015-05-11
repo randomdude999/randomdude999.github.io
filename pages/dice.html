@@ -3,6 +3,8 @@
 	<head>
 		<title>Dice</title>
 		<meta charset="utf-8">
+		<meta name="keywords" content="dice, die, randomdude999, javascript">
+		<link rel="shortcut icon" href="../img/favicon.ico">
 		<script>
 		var random, html, previous, rotation = 0,rotToZero;
 			function main() {
@@ -14,7 +16,7 @@
 					main();
 					return;
 				}
-				div.style.backgroundImage = "url(Dice"+(random+1)+".png)";
+				div.style.backgroundImage = "url(../img/Dice"+(random+1)+".png)";
 				div.style.transform = "rotate("+rotation+"deg)";
 				previous = random;
 				
