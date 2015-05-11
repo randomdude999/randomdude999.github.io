@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Dice</title>
+		<meta charset="utf-8">
+		<script>
+		var random, html, previous, rotation = 0,rotToZero;
+			function main() {
+				rotation += Math.round(Math.random()*2+1)*90;
+				rotToZero = Math.round(Math.random());
+				random = Math.round(Math.random()*5);
+				div = document.getElementsByTagName('div')[0];
+				if(random === previous) {
+					main();
+					return;
+				}
+				div.style.backgroundImage = "url(Dice"+(random+1)+".png)";
+				div.style.transform = "rotate("+rotation+"deg)";
+				previous = random;
+				
+			}
+			window.onload = main;
+		</script>
+	</head>
+	<body>
+		<div onclick="main()" style="position:absolute;top:50%;left:50%;width:256px;height:256px;margin-top:-128px;margin-left:-128px;transition:background 0.5s linear 0.25s, transform 1s cubic-bezier(0, 0.25, 0, 1);border-radius:52px;cursor:pointer;"></div>
+	</body>
+</html>
