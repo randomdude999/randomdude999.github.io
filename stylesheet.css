@@ -3,7 +3,7 @@ body {
   margin: 30px;
 }
 
-p, h1, a, li {
+p, h1, h2, a, li {
   color: #fff;
   font-family: Oswald;
 }
